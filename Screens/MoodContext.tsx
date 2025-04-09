@@ -12,7 +12,7 @@ type MoodContextType = {
   addMood: (mood: string) => void;
   updateMood: (id: string, mood: string) => void;
   deleteMood: (id: string) => void;
-  clearMoods: () => void; // Added function to clear moods
+  clearMoods: () => void;
   darkMode: boolean;
   toggleDarkMode: () => void;
 };
@@ -65,7 +65,7 @@ export const MoodProvider = ({ children }: { children: ReactNode }) => {
   const clearMoods = async () => {
     try {
       await AsyncStorage.removeItem('moods');
-      setMoods([]); // Clear the state
+      setMoods([]);
     } catch (error) {
       console.error('Failed to clear moods:', error);
     }
